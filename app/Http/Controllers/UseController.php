@@ -40,8 +40,9 @@ class UseController extends Controller
     $user->save();
 
   
+  $msg = "dados do usuario com o id ". $id . " foram atualizados com sucesso"; 
 
-    return view('mensagem');
+    return view('mensagem',compact('msg'));
   }
 
 
@@ -80,7 +81,11 @@ $user = User::find($id);
 
 $user->delete();
 
-return view('mensagem');
+// 1 para exclusao dois para edit
+
+$msg = "O usuario com id " . $id . "  foi deletado com sucesso";
+
+return view('mensagem',compact('msg'));
 
 }
 
