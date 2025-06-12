@@ -1,3 +1,6 @@
+@extends('layouts.template')
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +9,9 @@
     <title>Dados Cadastrados no banco</title>
 </head>
 <body>
+
+@section('content')
+
     <h1>Banco de dados atual</h1>
       <h2>
     @forelse ($usuarios as $usuario)
@@ -16,7 +22,7 @@
 </h2>
 
 
-
+@endsection
 
 
 

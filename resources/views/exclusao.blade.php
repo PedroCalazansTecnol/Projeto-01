@@ -1,3 +1,7 @@
+@extends('layouts.template')
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +10,10 @@
     <title>Exluir pagina</title>
 </head>
 <body>
+
+
+    
+@section('content')
     <form action="{{route('delete')}}" method="get">
       
         <input type="text" name="id" id="">
@@ -13,5 +21,6 @@
 
     </form>
 
+@endsection
 </body>
 </html>

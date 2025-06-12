@@ -1,6 +1,4 @@
-@extends('layout')
-
-@section('content')
+@extends('layouts.template')
 
 
 <!DOCTYPE html>
@@ -10,7 +8,10 @@
     <title>Cadastro de Usuario</title>
 </head>
 <body>
-    <h1>Cadastro de usuario</h1>
+
+@section('content')
+
+
     <form action="{{route('form.ver')}}" method="get">
         @csrf
         <label for="nome">Nome :</label>
@@ -23,15 +24,17 @@
         <input type="password" name="senha" id="senha">
          <br><br>
          
-        <input type="submit" value="Enviar dados">
+        <input style="border-radius:4px;" type="submit" value="Enviar dados">
     </form>
     <br>
-    <a href="{{route('dados.banco')}}">Ver dados</a>
-    <br><br>
-    <a href="{{route('att.dados')}}">Editar dados</a>
-    <br><br>
-    <a href="{{route('excluir')}}">Excluir dados</a>
+<button onclick="window.location.href='@php echo route('dados.banco'); @endphp'">Ver dados</button>
+<br><br>
+<button onclick="window.location.href='@php echo route('att.dados'); @endphp'">Editar dados</button>
+<br><br>
+<button onclick="window.location.href='@php echo route('excluir'); @endphp'">Excluir dados</button>
+    
+@endsection
+
 </body>
 </html>
 
-@endsection

@@ -1,3 +1,5 @@
+@extends('layouts.template')
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -6,6 +8,8 @@
     <title>Atualizar dados</title>
 </head>
 <body>
+
+@section('content')
     <form action="{{route('msg')}}" method="get">
           <label for="nome">Id :</label>
         <input type="text" name="id" id="">
@@ -19,6 +23,8 @@
         <input type="submit" value="atualizar">
     </form>
 
-    
+@endsection
 </body>
 </html>
+
+
