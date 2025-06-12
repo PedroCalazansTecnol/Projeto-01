@@ -2,7 +2,7 @@ version: '3'
 services:
   app:
     build: .
-    container_name: meu_app
+    container_name: projeto01
     ports:
       - "8000:8000"
     volumes:
@@ -12,8 +12,9 @@ services:
     networks:
       - minha_rede
   db:
+
     image: mysql:8
-    container_name: meu_banco
+    container_name: appdb
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
