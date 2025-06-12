@@ -19,7 +19,7 @@ Route::get('/form', [UseController::class, 'index'])->name('form.index');
 
 Route::get('/form/registro',[UseController::class,'visu'])->name('form.ver');
 
-Route::get('/visualizar',[VisuController::class,'lista'])->name('dados.banco');
+Route::get('/visualizar',[UseController::class,'lista'])->name('dados.banco');
 
 Route::get('form/atualizar/',[UseController::class,'att'])->name('att.dados');
 
