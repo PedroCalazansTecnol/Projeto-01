@@ -1,0 +1,27 @@
+version: '3'
+services:
+  app:
+    build: .
+    container_name: meu_app
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/var/www
+    depends_on:
+      - db
+    networks:
+      - minha_rede
+  db:
+    image: mysql:8
+    container_name: meu_banco
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: appdb
+      MYSQL_USER: user
+      MYSQL_PASSWORD: vvv
+    networks:
+      - minha_rede
+networks:
+  minha_rede:
+    driver: bridge
