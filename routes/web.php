@@ -34,3 +34,9 @@ Route::get('form/atualizar/',[UseController::class,'att'])->name('att.dados');
 
 //ROTA PARA ATUALIZAÇÃO DE DADOS
 Route::get('/atualizar',[UseController::class,'confirm'])->name('confirm.att');
+
+//ROTA DE VERIFICAÇÃO DE UM OBJETO DENTRO DO BANCO DE DADOS
+Route::get('verificar',[UseController::class,'verificar'])->name('verificar');
+// ROTA Q VERIFICA UM OBJETO DENTRO DO BANCO DE DADOS
+
+Route::get('verificar/resultado',[UseController::class,'check'])->name('verificar.check');

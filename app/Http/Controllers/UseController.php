@@ -8,6 +8,28 @@ use Illuminate\Http\Request;
 class UseController extends Controller
 {
 
+  public function check(Request $request){
+
+    
+    $nome = trim($request['nome']);
+
+    $teste = User::whereRaw('LOWER(name) = ?', [strtolower($nome)])->exists();
+
+  if($teste){
+    $msg ='O usuario ' . $nome . ' está cadastrado no banco'; 
+    return view('mensagem',compact('msg'));
+  }
+  else{
+    $msg = 'O usuario '.$nome . 'não está cadastrado no banco';
+    return view('mensagem',compact('msg'));
+  }
+
+  }
+
+  public function verificar(){
+    return view('verificar');
+
+  }
 
   
     public function lista(){

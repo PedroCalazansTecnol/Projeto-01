@@ -1,3 +1,4 @@
+@extends('layouts.template')
 
 
 <!DOCTYPE html>
@@ -8,10 +9,12 @@
     <title>Atualização</title>
 </head>
 <body>
+@section('content')
+
     <h1>{{$msg}}</h1>
 
     <x-msg"/>     
 
-    
+@endsection    
 </body>
 </html>

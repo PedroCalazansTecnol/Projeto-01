@@ -29,6 +29,8 @@
 <button onclick="window.location.href='@php echo route('att.dados'); @endphp'">Editar dados de usuario</button>
 <br><br>
 <button onclick="window.location.href='@php echo route('excluir'); @endphp'">Excluir dados de usuario</button>
+<br><br>
+<button onclick="window.location.href='@php echo route('verificar'); @endphp'">Verificar</button>
     
 @endsection
 

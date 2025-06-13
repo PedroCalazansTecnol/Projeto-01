@@ -21,7 +21,7 @@
 <div class="container mt-5 w-100">
     <nav class="navbar navbar-dark bg-dark">
         <div class="container-fluid justify-content-center">
-            <a class="navbar-brand" href="#"><strong>CRUD</strong></a>
+            <a class="navbar-brand" href="{{route('index')}}"><strong>CRUD</strong></a>
         </div>
     </nav>
 
