@@ -16,7 +16,7 @@
 @section('content')
     <form action="{{route('delete')}}" method="get">
       
-        <input type="text" name="id" id="">
+        <input type="text" name="id" id=""> <br> <br>
         <input type="submit" value="Excluir">
 
     </form>

@@ -18,15 +18,10 @@ class UseController extends Controller
 
         
         return view('listaDados',['usuarios'=> $usuarios] );
-
-
     }
 
-
-
-
   public  function index(){
-        return view('cadastroUsuario');
+        return view('home');
   }
 
 
@@ -64,8 +59,9 @@ class UseController extends Controller
         'email'=>$email,
       ]);
 
+      $msg ="Usuario Cadastrado com sucesso";
 
-    return view('Visualizar'); 
+    return view('mensagem',compact('msg')); 
   
   }
 
@@ -88,5 +84,13 @@ $msg = "O usuario com id " . $id . "  foi deletado com sucesso";
 return view('mensagem',compact('msg'));
 
 }
+
+
+public function cad(){
+
+  return view('cadastrarUsuario');
+
+}
+
 
 }

@@ -2,17 +2,17 @@
 
 
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Cadastro de Usuario</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cadastro de usuario</title>
 </head>
 <body>
 
 @section('content')
-
-
-    <form action="{{route('form.ver')}}" method="get">
+       <form action="{{route('msg')}}" method="get">
         @csrf
         <label for="nome">Nome :</label>
         <input type="text" name="nome" id="nome">
@@ -27,14 +27,8 @@
         <input style="border-radius:4px;" type="submit" value="Enviar dados">
     </form>
     <br>
-<button onclick="window.location.href='@php echo route('dados.banco'); @endphp'">Ver dados</button>
-<br><br>
-<button onclick="window.location.href='@php echo route('att.dados'); @endphp'">Editar dados</button>
-<br><br>
-<button onclick="window.location.href='@php echo route('excluir'); @endphp'">Excluir dados</button>
-    
+
 @endsection
 
 </body>
 </html>
-

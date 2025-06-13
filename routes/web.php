@@ -2,29 +2,35 @@
 
 use App\Http\Controllers\UseController;
 use App\Http\Controllers\VisuController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-
-
-    return view('welcome');
-})-> name('index');
+Route::get('/', [UseController::class, 'index'])-> name('index');
 
 
 // PARA PROGRAMAR UMA ROTA PRIMEIRO NOS TEMOS O CAMINHO E LOGO DEPOIS A ROTA EM SI
 //PASSAMOS COMO PAREMETRO O CAMINHO E A CONTROLLER QUE VAI DIRECIONAR A VIEW PARA ROTA
 //O NAME EU CONSIGO REDIRECIONAR PARA A ROTA DE DO PROPRIO HHTML =>  " <a href="{{route('user.create')}}">Cadastrar</a> "
 
-Route::get('/form', [UseController::class, 'index'])->name('form.index');
 
-Route::get('/form/registro',[UseController::class,'visu'])->name('form.ver');
-
+//VISUALIZAÇÃO DE DADOS DO BANCO
 Route::get('/visualizar',[UseController::class,'lista'])->name('dados.banco');
 
-Route::get('form/atualizar/',[UseController::class,'att'])->name('att.dados');
+//PAGINA DE SUCESSO PARA QUALQUER PROCESSO REALIZADO
+Route::get('form/atualizar/conclusao',[UseController::class,'visu'])->name('msg');
 
-Route::get('form/atualizar/conclusao',[UseController::class,'confirm'])->name('msg');
-
+//DIRECIONAMENTO PARA PAGINA DE EXCLUSÃO
 Route::get('form/exclusao',[UseController::class,'exc'])->name('excluir');
 
+//EXECUÇÃO DA EXCLUSÃO DE UM USUARIO VIA ID
 Route::get('/form/exclusao/delete',[UseController::class,'delete'])->name('delete');
+
+//DIRECIONAMENTO PARA PAGINA DE REGISTRO DE USUSARIO
+Route::get('/form/cadastro',[UseController::class,'cad'])->name('cad.user');
+
+//DIRECIONAMENTO PARA A PAGINA DE ATUALIZAÇÃO DE DADOS
+Route::get('form/atualizar/',[UseController::class,'att'])->name('att.dados');
+
+
+//ROTA PARA ATUALIZAÇÃO DE DADOS
+Route::get('/atualizar',[UseController::class,'confirm'])->name('confirm.att');

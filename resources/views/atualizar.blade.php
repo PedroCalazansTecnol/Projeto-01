@@ -10,7 +10,7 @@
 <body>
 
 @section('content')
-    <form action="{{route('msg')}}" method="get">
+    <form action="{{route('confirm.att')}}" method="get">
           <label for="nome">Id :</label>
         <input type="text" name="id" id="">
         <br><br>
