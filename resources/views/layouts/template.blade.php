@@ -28,6 +28,12 @@
     <div class="text-center mt-5 me-4">
         @yield('content')
     </div>
+
+    <nav class="navbar navbar-dark bg-dark mt-5">
+        <div class="container-fluid justify-content-center h-100">
+           
+        </div>
+    </nav>
 </div>
 
 

@@ -10,6 +10,9 @@
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
-h1{
-    color: red;
-}
+  button{
+ 
+        width: 200px;
+        padding: 10px;
+        font-size: 14px;
+        }

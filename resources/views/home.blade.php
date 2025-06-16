@@ -1,6 +1,7 @@
 @extends('layouts.template')
 
 
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
