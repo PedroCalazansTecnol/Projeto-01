@@ -40,3 +40,9 @@ Route::get('verificar',[UseController::class,'verificar'])->name('verificar');
 // ROTA Q VERIFICA UM OBJETO DENTRO DO BANCO DE DADOS
 
 Route::get('verificar/resultado',[UseController::class,'check'])->name('verificar.check');
+
+//ROTA DE TESTE PARA RETORNAR UM JSON
+
+/*Route::get('/users',function(){
+     return response()->json(User::all());
+});*/

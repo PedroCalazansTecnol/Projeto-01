@@ -8,21 +8,22 @@ use Illuminate\Http\Request;
 class UseController extends Controller
 {
 
-  public function check(Request $request){
+   public function check(Request $request){
 
-    
-    $nome = trim($request['nome']);
+      //REMOVE TODOS OS ESPAÇOS DA STRING    
+        $nome = trim($request['nome']);
 
-    $teste = User::whereRaw('LOWER(name) = ?', [strtolower($nome)])->exists();
+        //VERIFICA SE A STRING PERTECE AO CAMPO 'NOME DENTRO DO BANCO'
+        $teste = User::whereRaw('LOWER(name) = ?', [strtolower($nome)])->exists();
 
-  if($teste){
-    $msg ='O usuario ' . $nome . ' está cadastrado no banco'; 
-    return view('mensagem',compact('msg'));
-  }
-  else{
-    $msg = 'O usuario '.$nome . 'não está cadastrado no banco';
-    return view('mensagem',compact('msg'));
-  }
+      if($teste){
+        $msg ='O usuario ' . $nome . ' está cadastrado no banco'; 
+        return view('mensagem',compact('msg'));
+      }
+      else{
+        $msg = 'O usuario '.$nome . 'não está cadastrado no banco';
+        return view('mensagem',compact('msg'));
+      }
 
   }
 
@@ -31,15 +32,15 @@ class UseController extends Controller
 
   }
 
-  
-    public function lista(){
+      
+        public function lista(){
 
-  
-        // Realiza a busca no banco de dados, e coloca 10 objetos por pagina
-        $usuarios = User::orderByDesc('id')->paginate(10);
+      
+            // Realiza a busca no banco de dados, e coloca 11 objetos por pagina
+            $usuarios = User::orderByDesc('id')->paginate(11);
 
-        
-        return view('listaDados',['usuarios'=> $usuarios] );
+            
+            return view('listaDados',['usuarios'=> $usuarios] );
     }
 
   public  function index(){
@@ -48,18 +49,22 @@ class UseController extends Controller
 
 
   public function confirm(Request $request){
-    $id = $request -> input('id');
-    $user = User::find($id);
+
+      //RECEBE O ID
+      $id = $request -> input('id');
+      //CRIA UM OBJETO COM BASE NO OBJETO DO BANCO PELO ID
+      $user = User::find($id);
+      
+      //ATUALIZA OS DADOS DO OBJETO CRIADO COM BASE NO QUE FOI INFORMADO NO INPUT
+      $user->name = $request ->input('nome');
+      $user->email = $request ->input('email');
+      //SALVA OS DADOS DO OBJETO LIGANDO ELE AO BANCO
+      $user->save();
+
     
-    //autalização por dado
-    $user->name = $request ->input('nome');
-    $user->email = $request ->input('email');
-    $user->save();
+    $msg = "dados do usuario com o id ". $id . " foram atualizados com sucesso"; 
 
-  
-  $msg = "dados do usuario com o id ". $id . " foram atualizados com sucesso"; 
-
-    return view('mensagem',compact('msg'));
+      return view('mensagem',compact('msg'));
   }
 
 
@@ -67,7 +72,7 @@ class UseController extends Controller
     return view('atualizar');
   }
 
-
+  //CADASTRO DE USUARIO
   public function visu(Request $request){
   
     $nome = $request->input('nome');
@@ -93,17 +98,18 @@ class UseController extends Controller
     return view('exclusao');
   }
 
-public function delete(Request $request){
-$id = $request ->input('id');
-$user = User::find($id);
+//EXCLUSÃO DO USUARIO PELO ID INFORMADO
+    public function delete(Request $request){
+    $id = $request ->input('id');
+    $user = User::find($id);
 
-$user->delete();
+    $user->delete();
 
-// 1 para exclusao dois para edit
+    // 1 para exclusao dois para edit
 
-$msg = "O usuario com id " . $id . "  foi deletado com sucesso";
+    $msg = "O usuario com id " . $id . "  foi deletado com sucesso";
 
-return view('mensagem',compact('msg'));
+    return view('mensagem',compact('msg'));
 
 }
 
@@ -114,5 +120,6 @@ public function cad(){
 
 }
 
+ 
 
 }

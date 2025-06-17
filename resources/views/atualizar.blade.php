@@ -1,4 +1,5 @@
 @extends('layouts.template')
+@vite(['resources/js/app.js'])
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -20,7 +21,9 @@
         <label for="nome">E-mail :</label>
         <input type="text" name="email" id="email">
         <br><br>
-        <input type="submit" value="atualizar">
+          <button type="submit" style="border-radius:4px;" id ="btn" disabled>
+        Enviar dados
+        </button>      
     </form>
 
 @endsection

@@ -13,9 +13,10 @@
 @section('content')
 
     <h1>Banco de dados atual</h1>
+    <hr style="height: 5px">
       <h2>
     @forelse ($usuarios as $usuario)
-        <p>{{ $usuario->name }}</p>
+        <p> {{$usuario->id}} {{ $usuario->name }} {{$usuario->created_at}}</p>
     @empty
         <p>Sem usuários cadastrados</p>
     @endforelse
