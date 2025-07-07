@@ -23,6 +23,8 @@ class UserController extends Controller
     public function store(Request $request)
     {
 
+
+
         try{
         $nome = $request->input('name');
         $email = $request->input('email');
@@ -49,7 +51,9 @@ class UserController extends Controller
             'erro' => $e->getMessage()
         ], 500);
 
-        }
+        
+    
+    }
         
     }
 

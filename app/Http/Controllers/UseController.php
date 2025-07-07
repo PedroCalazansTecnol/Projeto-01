@@ -4,9 +4,40 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UseController extends Controller
 {
+
+public function crud()
+{
+    return view('home'); // Sua página protegida com conteúdo do CRUD
+}
+
+
+public function logar(Request $request){
+$email = trim($request->input('email'));
+$msg ='Dados incorretos4rr4';
+$user = User::where('email',$email)->first();
+
+
+
+if($user){
+    Auth::login($user);
+ //   dd(Auth::check());
+    return redirect()->route('home');
+}
+return view ('mensagem',compact('msg'));
+
+
+}
+
+
+
+
+
+
+
 
    public function check(Request $request){
 
@@ -44,7 +75,8 @@ class UseController extends Controller
     }
 
   public  function index(){
-        return view('home');
+    $msg ='';
+        return view('login',compact('msg'));
   }
 
 

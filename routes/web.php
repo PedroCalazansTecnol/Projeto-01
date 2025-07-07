@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\UseController;
 use App\Http\Controllers\VisuController;
 use App\Models\User;
@@ -31,7 +32,6 @@ Route::get('/form/cadastro',[UseController::class,'cad'])->name('cad.user');
 //DIRECIONAMENTO PARA A PAGINA DE ATUALIZAÇÃO DE DADOS
 Route::get('form/atualizar/',[UseController::class,'att'])->name('att.dados');
 
-
 //ROTA PARA ATUALIZAÇÃO DE DADOS
 Route::get('/atualizar',[UseController::class,'confirm'])->name('confirm.att');
 
@@ -46,3 +46,15 @@ Route::get('verificar/resultado',[UseController::class,'check'])->name('verifica
 /*Route::get('/users',function(){
      return response()->json(User::all());
 });*/
+
+//ROTA DE AUTENTICAÇÃO
+
+Route::POST('/autenticar',[UseController::class,'logar'])->name('autenticar');
+
+Route::get('/CRUD',[UseController::class,'crud'])->middleware('auth')->name('home');
+
+Route::get('/login',function(){
+     $msg ="dados incorretos";
+
+     return view('login',compact('msg'));
+})->name('login');

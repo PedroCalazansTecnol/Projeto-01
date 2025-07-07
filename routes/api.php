@@ -7,6 +7,13 @@ use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use App\Http\Controllers\UseController;
 
+/*
+
+Os metodos são utilizados para seguir os padrões HTTP
+
+
+*/
+
 
 
 //ROTA PARA API CONSEGUIR TODOS O USUARIO CADASTRADOS DENTRO DO BANCO
