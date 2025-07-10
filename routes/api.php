@@ -18,7 +18,7 @@ Os metodos são utilizados para seguir os padrões HTTP
 
 //ROTA PARA API CONSEGUIR TODOS O USUARIO CADASTRADOS DENTRO DO BANCO
 Route::get('/users',[UserController::class,'index']);
-//RECEBE UM ID E RETORNA O JASON APENAS COM O OBJETO A QUAL ELE ESTÁ VINCULADO
+//RECEBE UM ID E RETORNA O JSON APENAS COM O OBJETO A QUAL ELE ESTÁ VINCULADO
 Route::get('/consulta/{id}',[UserController::class,'show']);
 //RECEBE UM ID E EXCLUI O OBJETO NO BANCO RETORNANDO UM JSON COM OS DADOS DELE
 Route::delete('excluir/{id}',[UserController::class,'destroy']);

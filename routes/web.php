@@ -49,7 +49,7 @@ Route::get('verificar/resultado',[UseController::class,'check'])->name('verifica
 
 //ROTA DE AUTENTICAÇÃO
 
-Route::POST('/autenticar',[UseController::class,'logar'])->name('autenticar')->middleware('auth');
+Route::POST('/autenticar',[UseController::class,'logar'])->name('autenticar');
 
 Route::get('/CRUD',[UseController::class,'crud'])->middleware('auth')->name('home')->middleware('auth');
 
