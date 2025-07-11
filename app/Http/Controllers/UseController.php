@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UseController extends Controller
 {
@@ -13,16 +14,22 @@ public function crud()
 {
     return view('home'); // Sua página protegida com conteúdo do CRUD
 }
-
+ 
 
 public function logar(Request $request){
 $email = trim($request->input('email'));
+$senha = $request->input('senha');
 $msg ='Dados incorretos4rr4';
-$user = User::where('email',$email)->first();
+
+
+//
+$user = User::where('email',$email,)->first();
 
 
 
-if($user){
+
+
+if($user && Hash::check($senha,$user->password)){
     Auth::login($user);
  //   dd(Auth::check());
     return redirect()->route('home');
